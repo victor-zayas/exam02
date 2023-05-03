@@ -27,8 +27,9 @@ void	ft_putnbr(int nbr)
 	if (nbr >= 10)
 	{
 		ft_putnbr(nbr / 10);
+		ft_putnbr(nbr % 10);
 	}
-	nbr = (nbr % 10) + '0';
+	nbr = nbr + '0';
 	write(1, &nbr, 1);
 }
 
@@ -59,8 +60,9 @@ int	main(int argc, char **argv)
 		nb = ft_atoi(argv[1]);
 		while (nb > 0)
 		{
-			if (is_prime(nb--))
+			if (is_prime(nb))
 				sum += (nb + 1);
+			nb--;
 		}
 		ft_putnbr(sum);
 	}
